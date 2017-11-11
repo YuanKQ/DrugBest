@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-__title__ = 'SDF2Process.py'
+__title__ = 'MACCS2Process.py'
 __IDE__ = 'PyCharm'
 __author__ = 'YuanKQ'
 __mtime__ = 'Oct 21,2017 22:47'
@@ -10,7 +10,7 @@ __description__== 抽取药物MACCS key:
                   从.sdf文件(all structure from drugbank)中抽取出药物名称(generic Name, 全部小写)
                   ==> 经过MAyaChemTools处理得到MACCS key与药物名称对应起来.
                   ==> 序列化
-                  ""../Data/characters/MACCS166/durg_MACCS.pickle": 长度为8176的dict结构, key为药名, value为MACCS key vector
+                  ""../Data/characters/MACCS166/drug_MACCS.pickle": 长度为8176的dict结构, key为药名, value为MACCS key vector
 
 """
 import re
@@ -53,6 +53,15 @@ def extract_MACCSkey(drugs_list):
         print(index)
     return MACCS_dict
 
+def build_MACCS_ddi_matrix():
+    drugs_DDI = read_from_splitFile("../Data/draft/Drugbank4-PDDIs.csv", "$", [1, 3])
+    drug_MACCS_ddi_dict = {}
+    for drug in drugs_DDI:
+        if drug in drugs2MACCS_dict:
+            drug_MACCS_ddi_dict[drug] = drugs2MACCS_dict[drug]
+    print(len(drug_MACCS_ddi_dict))
+    return drug_MACCS_ddi_dict
+
 
 if __name__ == '__main__':
     """ # Just for test the size of dataset
@@ -71,10 +80,22 @@ if __name__ == '__main__':
     print(len(drugs_drugbank_filter & drugs_DDI & drugs_SIDER & drugs_KG),
           "drugs_drugbank_filter & drugs_DDI & drugs_SIDER & drugs_KG")
     """
+
+    """ # main process to build drug_MACCS_dict
     drugs_list, item = extract_from_sdf()
     drugs2MACCS_dict = extract_MACCSkey(drugs_list)
-    with open("../Data/characters/MACCS166/durg_MACCS.pickle", "wb") as wf:
+    with open("../Data/characters/MACCS166/drug_MACCS.pickle", "wb") as wf:
         pickle.dump(drugs2MACCS_dict, wf)
+    """
+
+    # only extract the drug in ddi:
+    with open("../Data/characters/MACCS166/drug_MACCS.pickle", 'rb') as rf:
+        drugs2MACCS_dict = pickle.load(rf)
+    drug_MACCS_ddi_dict = build_MACCS_ddi_matrix()
+    with open("../Data/characters/MACCS166/drug_MACCS_ddi_dict.pickle", "wb") as wf:
+        pickle.dump(drug_MACCS_ddi_dict, wf)
+
+
 
 
 

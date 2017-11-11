@@ -43,11 +43,11 @@ def calculate_TFIDF(input_dict, drug_size, feature_size):
         input_metric[index] = input_dict[key]
         index += 1
     big_metric = np.transpose(input_metric)
-    print(big_metric)
+    # print(big_metric)
     # DF(t, Drugs): the number of drugs with side effect
     df = big_metric.sum(1)  # 4492*1
     idf = np.log((drug_size + 1) / (df + 1))  # 4492*1
-    print("idf:", np.max(idf), np.min(idf))
+    print("idf:", "max:", np.max(idf), "min:", np.min(idf))
     return np.transpose(idf)  # 1*4492
 
 

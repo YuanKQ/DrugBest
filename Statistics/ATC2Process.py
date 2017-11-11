@@ -8,8 +8,8 @@ __mail__ = kq_yuan@outlook.com
 
 __description__== 处理drugbank("../Data/draft/drugbank_all_infos_v_5_0_9.xml")的药物相应的atc-code, 将处理结果保存至.pickle文件中
                   序列化的结果为:
-                  "../Data/characters/ATC_DDI-v4/drug_code_dict.pickle":  字典结构, 长度为1191, key为药物, 药物与靶向作用酶关系以长度为738的np.array来表示, 每一位代表一种atc-code, 0表示不出现, 非零浮点数表示服用该种药物会出现该位所代表的atc-code的IDF值)
-                  "../Data/characters/ATC_DDI-v4/atc_code_name.pickle": list结构,长度为738, 指明上述的以长度为738的np.array的每一位所指代的atc-code的名称
+                  "../Data/characters/ATC_DDI-v4/drug_atc_dict.pickle":  字典结构, 长度为1191, key为药物, atc-code以长度为738的np.array来表示, 每一位代表一种atc-code, 0表示不出现, 非零浮点数表示服用该种药物会出现该位所代表的atc-code的IDF值)
+                  "../Data/characters/ATC_DDI-v4/atc_atc_name.pickle": list结构,长度为738, 指明上述的以长度为738的np.array的每一位所指代的atc-code的名称
 
 """
 import pickle
@@ -88,8 +88,8 @@ if __name__ == '__main__':
             print(atc_code_list[i], value)
         i += 1
 
-    with open("../Data/characters/ATC_DDI-v4/drug_code_dict.pickle", "wb") as wf:
+    with open("../Data/characters/ATC_DDI-v4/drug_atc_dict.pickle", "wb") as wf:
        pickle.dump(drug_code_matrix_dict, wf)
 
-    with open("../Data/characters/ATC_DDI-v4/atc_code_name.pickle", "wb") as wf:
+    with open("../Data/characters/ATC_DDI-v4/atc_atc_name.pickle", "wb") as wf:
        pickle.dump(atc_code_list, wf)

@@ -50,7 +50,6 @@ def DDI_count(drug_set, filename):
 
 
 if __name__ == '__main__':
-
     drugs_DDI = read_from_splitFile("../Data/draft/Drugbank4-PDDIs.csv", "$", [1, 3])
     drugs_KG = read_from_splitFile("../Data/draft/openKG_antibiotic.csv", ",", [1, ])
     side_effects = read_from_splitFile("../Data/draft/meddra_adverse_effects.tsv", "\t", [3, ])
