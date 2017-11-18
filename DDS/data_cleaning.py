@@ -57,7 +57,7 @@ def complete_zeros_vector(file):
             exclusion_set.add(drug)
         else:
             drug_character_dict[drug] = old_drug_character_dict[drug]
-    print(file, ": [exclusion_count]", exclusion_count)
+    print(file, exclusion_count)
     return drug_character_dict, exclusion_set
 
 

@@ -1,0 +1,312 @@
+----------------
+morphine
+52.24617001990218 ['oxycodone']1
+53.57476714533913 ['codeine']1
+55.7893387726478 ['hydrocodone']1
+56.86656342494882 ['heroin']1
+57.00172929349046 ['sufentanil']1
+57.06993606281132 ['pentazocine']1
+57.42196569723274 ['dexfenfluramine'] 右芬氟拉明（食欲抑制药，具有较弱的兴奋中枢的作用）4
+57.47480277570664 ['nalbuphine']1
+57.81329413632562 ['acepromazine']乙酰丙嗪（抗精神病）6
+57.828516989355805 ['dextropropoxyphene']1
+----------------
+codeine
+29.737815462849277 ['hydrocodone']1
+34.30831915865268 ['dexfenfluramine']5
+34.575974787789406 ['dextropropoxyphene']1
+34.900679158980665 ['heroin']1
+34.94050185442038 ['acepromazine']6
+35.19374576895913 ['triprolidine'] 曲普利啶（抗组胺药）镇咳方面6
+35.228087889897026 ['loratadine']抗组胺药6
+35.23577720103483 ['methoxamine'] （抗休克的血管活性药）5
+35.37626439067924 ['pentazocine']1
+35.39170395122695 ['celiprolol']噻利洛尔5
+----------------
+oxycodone
+47.63372376665406 ['hydrocodone']1
+49.58416543935278 ['codeine']1
+50.38529626005069 ['nalbuphine']1
+51.165177264338034 ['hydromorphone']1
+51.81707291925072 ['dexfenfluramine']4
+51.947740024923746 ['pentazocine']1
+52.24617001990218 ['morphine']1
+52.53472998405333 ['heroin']1
+52.62542943383998 ['methadone']1
+52.80395020022806 ['buprenorphine']1
+----------------
+ibuprofen
+59.35618218732309 ['methacycline']6
+59.390345763366945 ['encainide']5
+60.01492178821845 ['piroxicam']1
+60.384774533009654 ['cyclizine']5
+60.5291666945388 ['sulfadoxine']6
+60.89014357189319 ['bezafibrate']（调血脂）5
+61.10031321733246 ['oxytetracycline']6
+61.47266193757505 ['etodolac']5
+61.55803746699761 ['isocarboxazid']5
+61.83355783404211 ['netilmicin']奈替米星5
+----------------
+Indomethacin吲哚美辛
+46.62410688794982 ['tolmetin']1
+47.26980232173443 ['diflunisal']1
+47.37253955592449 ['piroxicam']3
+48.75708633766269 ['celiprolol']5
+49.36004055193984 ['methoxamine']5
+49.4820972682858 ['sulindac']3
+49.704492533649706 ['fenoprofen']1
+49.70639927570226 ['flunitrazepam']镇静剂5
+49.78463804610802 ['ketoprofen']酮洛芬1
+49.868013738160826 ['josamycin']交沙霉素5
+----------------
+Acetaminophen扑息热痛
+36.81313819380819 ['kaolin']5
+36.89867131225245 ['methoxamine']5
+36.98625457818852 ['procaterol']丙卡特罗（β激动）5
+37.12833895397124 ['sulfadimethoxine']磺胺地托辛5
+37.21159812270489 ['josamycin']交沙霉素5
+37.29940404462782 ['dimenhydrinate']晕海宁5
+37.38998545567096 ['fenfluramine'] 氟苯丙胺（抑制食欲）5
+37.48472069874834 ['triprolidine'] （哌啶类抗组胺药）4
+37.5457043098051 ['metaraminol']（拟肾上腺素）5
+37.58488774319097 ['metrizamide']甲泛葡胺（造影剂）5
+----------------
+Phenylbutazone保泰松（非甾体抗炎药）
+24.028726442493756 ['practolol']普拉洛尔5
+25.61076376179104 [' celiprolol ']噻利洛尔5
+25.751592153812755 ['spiramycin']螺旋霉素5
+25.975580070366608 [' flunitrazepam ']镇静剂5
+25.984709385076883 [' rolitetracycline '] 吡甲四环素5
+26.20769799015078 ['metrizamide']5
+26.228282614024934 [' triprolidine ']抗组胺4
+26.40261053053979 ['kaolin']5
+26.42465938682047 ['sulfapyridine']磺胺吡啶5
+26.495719422654727 [' acepromazine ']抗精神病5
+----------------
+Tramadol镇痛药
+81.87824629048626 ['dextropropoxyphene']1
+82.06516798486443 ['methoxamine']5
+82.09096952449626 ['pentazocine']1
+82.33520176687558 ['triprolidine']抗组胺药4
+82.42130832081754 ['dimenhydrinate']乘晕宁4
+82.46694847665428 ['sufentanil']1
+82.53719776365593 [' josamycin ']5
+82.60080843540732 ['fenfluramine']5
+82.61283802071337 ['azlocillin']阿洛西林5
+82.62920485971287 ['mechlorethamine'] 5
+----------------
+atropine
+49.441084604273165 ['hyoscyamine']1
+52.31558339217807 ['propantheline']1
+52.85399890575908 ['cyclopentolate']1
+53.96767495138896 ['brompheniramine']溴苯那敏（抗组胺）6
+54.03804207395293 ['methoxamine']（抗休克的血管活性药）抗休克3
+54.05851775258571 ['dimenhydrinate']5
+54.10979439626486 ['josamycin']5
+54.120734816705024 ['terbutaline']3
+54.21360746178529 ['metrizamide']5
+54.26883109120375 ['kaolin']5
+----------------
+Propantheline普鲁本辛
+25.12704372351341 ['acepromazine']5
+25.88344961178549 ['methoxamine']5
+25.893774436403024 ['dimenhydrinate']5
+26.16489500329147 ['metrizamide']5
+26.181802081423356 ['celiprolol']5
+26.354619805834655 ['dextropropoxyphene']5
+26.460219913782147 ['azlocillin']5
+26.51268201324127 ['josamycin']5
+26.512804156538532 ['doxylamine']多西拉敏（抗组胺）5
+27.054309060151212 ['paramethasone']帕拉米松（激素）5
+----------------
+Estazolam艾司唑仑（BDZ类镇静、催眠和抗焦虑药）
+36.92272919275169 ['cyclandelate']5
+37.14713545569525 ['pivampicillin']5
+38.04896958024219 ['cyclacillin']5
+38.302185872658285 ['domperidone']5
+38.34240753912495 ['prazepam']1
+38.67769755325204 ['bromazepam']1
+39.11398310574553 ['temazepam']1
+39.205936765958356 ['paramethasone']5
+39.34536418402067 ['ethchlorvynol']3
+39.531863590658524 ['flunitrazepam']1
+----------------
+diazepam
+34.75293039091697 ['bromazepam']1
+36.436950533130954 ['oxazepam']1
+36.8799280560581 ['prazepam']1
+36.88494840364017 ['temazepam']1
+37.16660537239755 ['triazolam']1
+37.39119847789698 ['chlordiazepoxide']1
+39.13224081265944 ['flunitrazepam']1
+39.350363710223256 ['flurazepam']1
+40.56855666696114 ['ethchlorvynol']3
+40.821447827472575 ['glutethimide']3
+----------------
+Alprazolam阿普唑仑
+46.558097312634665 ['triazolam']1
+48.051610157881385 ['oxazepam']1
+48.701969005054444 ['chlordiazepoxide']1
+48.80039311543455 ['prazepam']1
+49.19000835740128 ['temazepam']1
+49.19883912383362 ['bromazepam']1
+50.036541940566394 ['glutethimide']3
+50.19696416531531 ['flurazepam']1
+50.71135352555293 ['flunitrazepam']1
+51.925283356377165 ['lorazepam']1
+----------------
+amoxicillin
+35.193819331519144 ['ampicillin']1
+35.756361603598215 ['mezlocillin']1
+37.29817179846174 ['cefixime']3
+37.75055420370619 ['cyclacillin']1
+37.95257775802324 ['carbenicillin']1
+38.668920580668946 ['piperacillin']1
+38.693346108695046 ['cefotetan']3
+38.77074959258837 ['nafcillin']1
+39.04151573549139 ['pivampicillin']1
+39.37977452335554 ['oxacillin']1
+----------------
+piperacillin
+29.547821365292826 ['mezlocillin']1
+30.552969608029116 ['nafcillin']1
+32.988215460322664 ['cefotetan']3
+33.12773296346483 ['oxacillin']1
+33.14517402223358 ['ampicillin']1
+33.175923634161926 ['cyclacillin']1
+33.28343101821415 ['carbenicillin']1
+34.00139329463183 ['pivampicillin']1
+34.098109284059134 ['cefixime']3
+34.13913199218026 ['dicloxacillin']1
+----------------
+Ampicillin氨苄青霉素
+25.306477799072876 ['nafcillin']1
+25.97540407825724 ['oxacillin']1
+29.13004539950934 ['carbenicillin']1
+29.38938156197892 ['cyclacillin']1
+30.333716159293495 ['dicloxacillin']1
+31.584452737677875 ['pivampicillin']1
+31.663953932459055 ['cephalexin']3
+32.56105129758339 ['cefotetan']3
+32.70112930102496 ['ceftizoxime']3
+33.14517402223358 ['piperacillin']1
+----------------
+Cephalexin头孢氨苄
+24.56922050601815 ['ceftizoxime']1
+25.45553231693766 ['cefotetan']1
+26.65776621628322 ['cefixime']1
+26.79267722961738 ['nafcillin']3
+27.653904857346998 ['cyclacillin']3
+27.942878111956716 ['carbenicillin']3
+29.051205201868918 ['celiprolol']5
+29.484658309734847 ['cefaclor']1
+29.583259396697198 ['practolol']普拉洛尔5
+30.02731374285046 ['dicloxacillin']3
+----------------
+Ceftriaxone头孢曲松
+36.38531762703538 ['kaolin']5
+36.622944167582496 ['procaterol']5
+37.157702825035955 ['josamycin']3
+37.19612808713426 ['dimenhydrinate']5
+37.2801600082742 ['metrizamide']5
+37.37012107317966 ['mechlorethamine']6
+37.38502065914537 ['sulfadimethoxine']5
+37.51144359009494 ['penicillamine']3
+37.56914227463344 ['triprolidine']5
+37.84435088280518 ['fenfluramine']5
+----------------
+Kanamycin卡那霉素
+22.178607460747166 ['dimenhydrinate']5
+22.675745068626288 ['kaolin']5
+23.01451200658276 ['metrizamide']5
+23.46392575924754 ['azlocillin']3
+23.52904549935182 ['josamycin']1
+23.643771214361756 ['triprolidine']5
+23.77495219154748 ['dextropropoxyphene']5
+23.901622675016075 ['procaterol']5
+24.24023348012759 ['methoxamine']5
+24.66894425544728 ['fenfluramine']5
+----------------
+Amikacin阿米卡星（氨基糖苷类抗生素）
+27.26863633320884 ['moclobemide']（抗抑郁）5
+28.763138139755068 ['netilmicin']1
+30.57734418195943 ['diphenoxylate']5
+31.74051247938139 ['tobramycin']1
+38.77714250345088 ['methacycline']甲烯土霉素（四环素类）3
+40.266929997545866 ['sulfadoxine']3
+40.29229287675574 ['oxytetracycline']土霉素3
+40.46259182036762 ['streptozocin']4
+41.37462904162162 ['penbutolol']5
+41.6887327403389 ['troleandomycin']3
+----------------
+Minocycline米诺环素
+39.53838558628259 ['demeclocycline']1
+43.171207977491164 ['oxytetracycline']1
+45.087421673665 ['methacycline']1
+47.54671177343231 ['sulfadoxine']5
+48.01150539994518 ['tetracycline']1
+49.45277048413703 ['celiprolol']5
+49.997207922383204 ['doxycycline']1
+50.339826100315584 ['cyclizine'] 赛克利嗪（抗组胺）5
+50.451251109289 ['carbenicillin']3
+50.45483745962727 ['nafcillin']3
+----------------
+Doxycycline多西环素
+38.96359879671008 ['oxytetracycline']1
+41.09971979109236 ['methacycline']1
+42.581417637933704 ['demeclocycline']1
+44.09837160537021 ['sulfadoxine']5
+45.390477277361015 ['tetracycline']1
+47.2388734861792 ['cyclizine']5
+47.29450575885335 ['celiprolol']5
+47.368879735953904 ['nafcillin']3
+47.99790628464603 ['netilmicin']3
+48.018683529233265 ['carbenicillin']3
+----------------
+lincomycin
+24.793689222588938 ['spiramycin']3
+24.86157530202102 ['josamycin']3
+24.905488077235216 ['triprolidine']（抗组胺）5
+25.769659322358915 ['practolol']5
+25.875380774619195 ['celiprolol']5
+25.889153526338855 ['metrizamide']5
+25.95092895454544 ['sulfapyridine']3
+25.972290361347195 ['dimenhydrinate']5
+25.9977030134903 ['kaolin']5
+26.10525821505255 ['procaterol']5
+----------------
+clindamycin
+45.26769394306672 ['lincomycin']1
+45.77292552585144 ['mechlorethamine']6
+46.14517898135506 ['kaolin']5
+46.34633794436811 ['procaterol']5
+46.424878718054075 ['josamycin']3
+46.43653408617086 ['sulfadimethoxine']5
+46.460610358732765 ['triprolidine']5
+46.462094743112125 ['dimenhydrinate']5
+46.48492926954131 ['fenfluramine']5
+46.68606725490011 ['methoxamine']5
+----------------
+Roxithromycin罗红霉素
+28.185215288085683 ['levobunolol']5
+32.45756670141874 ['erythromycin']1
+35.46690009596693 ['sirolimus']1
+37.97181310623569 ['isocarboxazid']5
+38.353293476883486 ['encainide']5
+40.92010450488572 ['azithromycin']1
+46.437008778320994 ['rifabutin']3
+47.12903217792237 ['pargyline']5
+48.35940093934043 ['netilmicin']3
+49.11070049311657 ['dantrolene']5
+----------------
+Norfloxacin诺佛沙星（喹诺酮类）
+33.905180469718545 ['carbenicillin']3
+34.4388839069011 ['cyclacillin']3
+35.07484513035177 ['enoxacin']1
+35.68593411369933 ['pivampicillin']3
+35.7654250833779 ['celiprolol']5
+36.03141672873847 ['pefloxacin']1
+36.10722537836177 ['nafcillin']3
+36.24591989373328 ['mephentermine']5
+36.553527340747316 ['practolol']5
+36.57082003118713 ['ceftizoxime']3
