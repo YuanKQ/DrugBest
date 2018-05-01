@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<drugbank xmlns="http://www.drugbank.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.drugbank.cahttp://www.drugbank.ca/docs/drugbank.xsd" version="5.0" exported-on="2017-10-02">
+<drugbank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.drugbank.cahttp://www.drugbank.ca/docs/drugbank.xsd" version="5.0" exported-on="2017-10-02">
 <drug type="biotech" created="2005-06-13" updated="2016-08-17">
   <drugbank-id primary="true">DB00001</drugbank-id>
   <drugbank-id>BTD00024</drugbank-id>
