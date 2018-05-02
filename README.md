@@ -11,9 +11,9 @@
 drugbank所有药物相应的特征矩阵，可以直接提取不同年份的药物的药物关系
 **必须**
 - drug_code_dict.pickle: dict, 9697 * 867, idf
-- MACCS166/durg_MACCS_ddi_dict.pickle: dict, 8176 * 166, 0-n, n可能因为所取的值太大导致结果误差
-- MeSH/drug_MeSH_ddi_dict.pickle: dict, 630 * 128, embeding
-- Word2Vec/drug_word2vec_ddi_dict.pickle: dict, 1065 * 100, embeding
+- durg_MACCS_dict.pickle: dict, 8176 * 166, 0-n, n可能因为所取的值太大导致结果误差
+- drug_$hierarchy_dict.pickle: dict, 14333 * 127, embeding
+- drug_word2vec_ddi_dict.pickle: dict, 1054 * 100, embeding
 
 **特征向量可以为0**
 - ndfrt/drug_actionCode_matrix_dict.pickle: dict, 947*626, idf

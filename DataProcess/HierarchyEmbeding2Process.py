@@ -6,7 +6,8 @@ __author__ = 'YuanKQ'
 __mtime__ = 'May 02,2018 17:19'
 __mail__ = kq_yuan@outlook.com
 
-__description__==
+__description__== 将graph embeding的结果序列化: "/home/yuan/Code/PycharmProjects/DrugBest/Data/draft/drug_$hierarchy_embeding_dict.pickle":
+                  字典结构, 字典结构, 长度为14333, key为药物(全小写), value为经过node2vec训练后的127维向量(np.arrays(128)类型)
 
 """
 import pickle

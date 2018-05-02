@@ -17,7 +17,7 @@ def get_all_drugs_as_sets():
     :return: 所有药物名称的集合
     """
     drug_set = set()
-    with open("/home/yuan/Code/PycharmProjects/DrugBest/Data/allDrugName.txt", 'r') as rf:
+    with open("/home/yuan/Code/PycharmProjects/DrugBest/Data/draft/allDrugName.txt", 'r') as rf:
         lines = rf.readlines()
     for line in lines:
         drug_set.add(line.split()[0])
