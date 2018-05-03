@@ -10,7 +10,8 @@ __description__== 定义一些常见操作
 
 """
 import numpy as np
-
+import xml.etree.cElementTree as ET
+import pickle
 def get_all_drugs_as_sets():
     """
     获取drugbank5.0.9所有的药物名称（小写）
@@ -37,5 +38,25 @@ def calculate_TFIDF(input_dict, drug_size, feature_size):
     print("idf:", "max:", np.max(idf), "min:", np.min(idf))
     return np.transpose(idf)  # 1*4492
 
+def extract_drugbankId_drugname():
+    id_drug_dict = {}
+    tree = ET.ElementTree(file="/data/home/Code/DDI-DataSource/drugbank-5-0-9.xml")
+    # tree = ET.ElementTree(file="/home/yuan/Code/PycharmProjects/DrugBest/Data/draft/simple_drugbank_example.xml")
+    for drug_elem in tree.findall("drug"):
+        id = drug_elem.find("drugbank-id").text
+        drug_name = drug_elem.find("name").text.lower()
+        if id not in id_drug_dict.keys():
+            id_drug_dict[id] = drug_name
+    with open("/home/yuan/Code/PycharmProjects/DrugBest/Data/draft/drugbankID_drug.pickle", "wb") as wf:
+        pickle.dump(id_drug_dict, wf)
+
+
+def get_drugbankId_drugname():
+    drugbankId_drugName_dict = {}
+    with open("/home/yuan/Code/PycharmProjects/DrugBest/Data/draft/drugbankID_drug.pickle", 'rb') as rf:
+        drugbankId_drugName_dict = pickle.load(rf)
+    return drugbankId_drugName_dict
+
 if __name__ == '__main__':
-    get_all_drugs_as_sets()
+    # extract_drugbank_id_drugname()
+    print("end")

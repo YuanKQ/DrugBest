@@ -16,12 +16,12 @@ drugbank所有药物相应的特征矩阵，可以直接提取不同年份的药
 - drug_word2vec_ddi_dict.pickle: dict, 1054 * 100, embeding
 
 **特征向量可以为0**
-- ndfrt/drug_actionCode_matrix_dict.pickle: dict, 947*626, idf
-- ndfrt/drug_physiologicalCode_matrix_dict.pickle: dict, 947*1866, idf
+- ndfrt/drug_actionCode_matrix_dict.pickle: dict, 1388*626, idf
+- ndfrt/drug_physiologicalCode_matrix_dict.pickle: dict, 1321*1866, idf
 - SIDER/drug_SIDER.pickle: dict, 992*4492, idf
+- Target_DDI-v4/drug_target.pickle: dict, 6837*3880, idf
 
 - Target_DDI-v4/drug_enzyme.pickle: dict, 580*174, idf
-- Target_DDI-v4/drug_target.pickle: dict, 1097*1220, idf
 
 **必须**
 - ATC_DDI-v4/drug_code_dict.pickle: dict, 1191 * 738, idf
