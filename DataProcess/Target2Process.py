@@ -6,7 +6,18 @@ __author__ = 'YuanKQ'
 __mtime__ = 'May 02,2018 21:45'
 __mail__ = kq_yuan@outlook.com
 
-__description__==
+__description__== 处理药物靶向蛋白质, 靶向作用酶, 将处理结果保存至.pickle文件中
+                  序列化后的结果为:
+                  ---靶向蛋白质---
+                  "../Data/draft/drug_target_protein.txt" ==> "../Data/drug_target.pickle": 字典结构, 长度为6837, key为药物, 药物与靶向作用蛋白质关系以长度为3880的np.array来表示, 每一位代表一种副作用, 0表示不出现, 非零浮点数表示服用该种药物会出现该位所代表的靶向作用蛋白质IDF值)
+                  "../Data/target_name.pickle": list结构,长度为3880, 指明上述的以长度为1120的np.array的每一位所指代的靶向蛋白质的名称
+
+                  尚未处理：
+                  ---靶向作用酶---
+                  "../Data/draft/drug_enzyme_protein.txt" ==> "../Data/characters/Target_DDI-v4/drug_enzyme.pickle": 字典结构, 长度为580, key为药物, 药物与靶向作用酶关系以长度为174的np.array来表示, 每一位代表一种副作用, 0表示不出现, 非零浮点数表示服用该种药物会出现该位所代表的靶向作用酶IDF值)
+                  "../Data/characters/Target_DDI-v4/enzyme_name.pickle": list结构,长度为174, 指明上述的以长度为174的np.array的每一位所指代的靶向酶的名称
+
+
 
 """
 import pickle
