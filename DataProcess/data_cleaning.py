@@ -8,17 +8,16 @@ __mail__ = kq_yuan@outlook.com
 
 __description__== 删除特征向量全为0的药物, 去掉不曾使用的特征
                   单个特征:
-                  drug_actionCode_matrix_dict 557 188
-                  drug_phyCode_matrix_dict    557 320
-                  drug_SIDER_matrix_dict      557 3304
-                  drug_enzyme_matrix_dict     557 141
-                  drug_target_matrix_dict     557 773
-                  drug_atc_matrix_dict        557 619
-                  drug_MACCS_matrix_dict      557 158
-                  drug_MeSH_matrix_dict       557 127
-                  drug_word2vec_matrix_dict   557 100
+                  drug_actionCode_matrix_dict 584 221
+                  drug_phyCode_matrix_dict    584 326
+                  drug_SIDER_matrix_dict      584 4467
+                  drug_target_matrix_dict     584 681
+                  drug_atc_matrix_dict        584 562
+                  drug_MACCS_matrix_dict      584 157
+                  drug_$hierarchy_matrix_dict 584 127
+                  drug_word2vec_matrix_dict   584 100
                   ------------------------------------
-                  total: drug_all_dict        557 5730
+                  total: drug_all_dict        584 6641
 
 """
 import pickle
@@ -39,7 +38,7 @@ def read_pickle_to_dict(file):
 
 def write_dict_to_pickle(drug_character_dict, file_name):
     print(file_name, len(drug_character_dict), len(drug_character_dict[list(drug_character_dict.keys()).pop()]))
-    with open("after/%s.pickle" % file_name, "wb") as wf:
+    with open("/home/yuan/Code/PycharmProjects/DrugBest/Data/after/%s.pickle" % file_name, "wb") as wf:
         pickle.dump(drug_character_dict, wf)
 
 
@@ -101,19 +100,34 @@ if __name__ == '__main__':
     # 确定数据集total_drug_set规模: 557
     # drugs_DDI = read_from_splitFile("../Data/draft/Drugbank4-PDDIs.csv", "$", [1, 3])
     drugs_DDI = get_all_drugs_as_sets()
+    print("The total of drugs:", len(drugs_DDI))
     drug_atc_dict = read_pickle_to_dict("../Data/drug_atc_dict.pickle")
     drug_MACCS_dict = read_pickle_to_dict("../Data/drug_MACCS166_dict.pickle")
     drug_deepwalk_dict = read_pickle_to_dict("../Data/drug_deepwalk_embeding_dict.pickle")
     drug_LINE_dict = read_pickle_to_dict("../Data/drug_LINE_embeding_dict.pickle")
     drug_node2vec_dict = read_pickle_to_dict("../Data/drug_node2vec_embeding_dict.pickle")
     drug_word2vec_dict = read_pickle_to_dict("../Data/drug_word2vec_ddi_dict.pickle")
-    total_drug_set = drugs_DDI & drug_atc_dict.keys()& drug_MACCS_dict.keys() & drug_deepwalk_dict.keys() & drug_word2vec_dict.keys()
-    total_drug_deepwalk_set = drugs_DDI & drug_atc_dict.keys()& drug_MACCS_dict.keys() & drug_deepwalk_dict.keys() & drug_word2vec_dict.keys()
-    total_drug_node2vec_set = drugs_DDI & drug_atc_dict.keys()& drug_MACCS_dict.keys() & drug_node2vec_dict.keys() & drug_word2vec_dict.keys()
-    total_drug_LINE_set = drugs_DDI & drug_atc_dict.keys()& drug_MACCS_dict.keys() & drug_LINE_dict.keys() & drug_word2vec_dict.keys()
-    print("total_drug:", len(total_drug_deepwalk_set))  # 557
-    print("total_drug:", len(total_drug_node2vec_set))  # 557
-    print("total_drug:", len(total_drug_LINE_set))  # 557
+
+    drug_actionCode_dict = read_pickle_to_dict("../Data/drug_actionCode_matrix_dict.pickle")
+    drug_phyCode_dict = read_pickle_to_dict("../Data/drug_physiologicalCode_matrix_dict.pickle")
+    drug_sider_dict = read_pickle_to_dict("../Data/drug_SIDER.pickle")
+    drug_target_dict = read_pickle_to_dict("../Data/drug_target.pickle")
+    total_drug_set = drugs_DDI & drug_atc_dict.keys()& drug_MACCS_dict.keys() & drug_deepwalk_dict.keys() \
+                     & drug_word2vec_dict.keys() & drug_actionCode_dict.keys() & drug_phyCode_dict.keys() \
+                     & drug_sider_dict.keys() & drug_target_dict.keys()
+    total_drug_deepwalk_set = drugs_DDI & drug_atc_dict.keys()& drug_MACCS_dict.keys() & drug_deepwalk_dict.keys() \
+                              & drug_word2vec_dict.keys() & drug_actionCode_dict.keys() & drug_phyCode_dict.keys() \
+                              & drug_sider_dict.keys() & drug_target_dict.keys()
+    total_drug_node2vec_set = drugs_DDI & drug_atc_dict.keys()& drug_MACCS_dict.keys() & drug_node2vec_dict.keys() \
+                              & drug_word2vec_dict.keys() & drug_actionCode_dict.keys() & drug_phyCode_dict.keys() \
+                              & drug_sider_dict.keys() & drug_target_dict.keys()
+    total_drug_LINE_set = drugs_DDI & drug_atc_dict.keys()& drug_MACCS_dict.keys() & drug_LINE_dict.keys() \
+                          & drug_word2vec_dict.keys()& drug_actionCode_dict.keys() & drug_phyCode_dict.keys() \
+                          & drug_sider_dict.keys() & drug_target_dict.keys()
+    print("total_drug:", len(total_drug_set))  # 557
+    print("total_drug_deepwalk:", len(total_drug_deepwalk_set))  # 557
+    print("total_drug_node2vec:", len(total_drug_node2vec_set))  # 557
+    print("total_drug_LINE:", len(total_drug_LINE_set))  # 557
 
     # 过滤掉不在数据集total_drug_set中的药物
     drug_actionCode_matrix_dict, action_set = complete_zeros_vector("../Data/drug_actionCode_matrix_dict.pickle")
@@ -124,9 +138,9 @@ if __name__ == '__main__':
 
     exclusion_set = action_set & phy_set & SIDER_set & target_set
     print("exclusion_set:", len(exclusion_set), exclusion_set)
-"""
+
     drug_atc_matrix_dict, tmp = complete_zeros_vector("../Data/drug_atc_dict.pickle")
-    drug_MACCS_matrix_dict, tmp = complete_zeros_vector("../Data/drug_MACCS_ddi_dict.pickle")
+    drug_MACCS_matrix_dict, tmp = complete_zeros_vector("../Data/drug_MACCS166_dict.pickle")
     drug_deepwalk_matrix_dict, tmp = complete_zeros_vector("../Data/drug_deepwalk_embeding_dict.pickle")
     drug_LINE_matrix_dict, tmp = complete_zeros_vector("../Data/drug_LINE_embeding_dict.pickle")
     drug_node2vec_matrix_dict, tmp = complete_zeros_vector("../Data/drug_node2vec_embeding_dict.pickle")
@@ -140,25 +154,23 @@ if __name__ == '__main__':
     drug_target_matrix_dict = filter_zero_character(drug_target_matrix_dict, "target")
     drug_atc_matrix_dict = filter_zero_character(drug_atc_matrix_dict, "atc")
     drug_MACCS_matrix_dict = filter_zero_character(drug_MACCS_matrix_dict, "MACCS")
-    drug_deepwalk_matrix_dict = filter_zero_character(drug_deepwalk_matrix_dict, "MeSH")
-    drug_LINE_matrix_dict = filter_zero_character(drug_LINE_matrix_dict, "MeSH")
-    drug_node2vec_matrix_dict = filter_zero_character(drug_node2vec_matrix_dict, "MeSH")
+    drug_deepwalk_matrix_dict = filter_zero_character(drug_deepwalk_matrix_dict, "deepwalk")
+    drug_LINE_matrix_dict = filter_zero_character(drug_LINE_matrix_dict, "LINE")
+    drug_node2vec_matrix_dict = filter_zero_character(drug_node2vec_matrix_dict, "node2vec")
     drug_word2vec_matrix_dict = filter_zero_character(drug_word2vec_matrix_dict, "Word2Vec")
 
     # 将处理后的数据重新保存到pickle文件中
-    write_dict_to_pickle(drug_actionCode_matrix_dict, "../Data/after/drug_actionCode_matrix_dict")
-    write_dict_to_pickle(drug_phyCode_matrix_dict, "../Data/after/drug_phyCode_matrix_dict")
-    write_dict_to_pickle(drug_SIDER_matrix_dict, "../Data/after/drug_SIDER_matrix_dict")
+    write_dict_to_pickle(drug_actionCode_matrix_dict, "drug_actionCode_matrix_dict")
+    write_dict_to_pickle(drug_phyCode_matrix_dict, "drug_phyCode_matrix_dict")
+    write_dict_to_pickle(drug_SIDER_matrix_dict, "drug_SIDER_matrix_dict")
     # write_dict_to_pickle(drug_enzyme_matrix_dict, "drug_enzyme_matrix_dict")
-    write_dict_to_pickle(drug_target_matrix_dict, "../Data/after/drug_target_matrix_dict")
-    write_dict_to_pickle(drug_atc_matrix_dict, "../Data/after/drug_atc_matrix_dict")
-    write_dict_to_pickle(drug_MACCS_matrix_dict, "../Data/after/drug_MACCS_matrix_dict")
-    write_dict_to_pickle(drug_deepwalk_matrix_dict, "../Data/after/drug_MeSH_matrix_dict")
-    write_dict_to_pickle(drug_LINE_matrix_dict, "../Data/after/drug_MeSH_matrix_dict")
-    write_dict_to_pickle(drug_node2vec_matrix_dict, "../Data/after/drug_MeSH_matrix_dict")
-    write_dict_to_pickle(drug_word2vec_matrix_dict, "../Data/after/drug_word2vec_matrix_dict")
-"""
-
+    write_dict_to_pickle(drug_target_matrix_dict, "drug_target_matrix_dict")
+    write_dict_to_pickle(drug_atc_matrix_dict, "drug_atc_matrix_dict")
+    write_dict_to_pickle(drug_MACCS_matrix_dict, "drug_MACCS_matrix_dict")
+    write_dict_to_pickle(drug_deepwalk_matrix_dict, "drug_MeSH_matrix_dict")
+    write_dict_to_pickle(drug_LINE_matrix_dict, "drug_MeSH_matrix_dict")
+    write_dict_to_pickle(drug_node2vec_matrix_dict, "drug_MeSH_matrix_dict")
+    write_dict_to_pickle(drug_word2vec_matrix_dict, "drug_word2vec_matrix_dict")
 
     ## 将特征矩阵拼接在一块儿
     #drug_all_dict = {}
@@ -177,56 +189,65 @@ if __name__ == '__main__':
     #write_dict_to_pickle(drug_all_dict, "drug_all_dict")
 
 """
-## Output: /home/yuan/Code/research_code/DDI/DrugDrugInteraction/bin/python /home/yuan/Code/PycharmProjects/DrugBest/DDS/DDS.py
-../Data/draft/Drugbank4-PDDIs.csv 1199
-total_drug: 557
-before/drug_actionCode_matrix_dict.pickle : [exclusion_count] 53
-before/drug_physiologicalCode_matrix_dict.pickle : [exclusion_count] 64
-before/drug_SIDER.pickle : [exclusion_count] 174
-before/drug_enzyme.pickle : [exclusion_count] 217
-before/drug_target.pickle : [exclusion_count] 28
-exclusion_set: 5 {'methacycline', 'kaolin', 'metrizamide', 'troleandomycin', 'sulfadimethoxine'}
-before/drug_atc_dict.pickle : [exclusion_count] 0
-before/drug_MACCS_ddi_dict.pickle : [exclusion_count] 0
-before/drug_MeSH_ddi_dict.pickle : [exclusion_count] 0
-before/drug_word2vec_ddi_dict.pickle : [exclusion_count] 0
+## Output: 
+The total of drugs: 9697
+total_drug: 584
+total_drug_deepwalk: 584
+total_drug_node2vec: 584
+total_drug_LINE: 584
+../Data/drug_actionCode_matrix_dict.pickle 0
+../Data/drug_physiologicalCode_matrix_dict.pickle 0
+../Data/drug_SIDER.pickle 0
+../Data/drug_target.pickle 0
+exclusion_set: 0 set()
+../Data/drug_atc_dict.pickle 0
+../Data/drug_MACCS166_dict.pickle 0
+../Data/drug_deepwalk_embeding_dict.pickle 0
+../Data/drug_LINE_embeding_dict.pickle 0
+../Data/drug_node2vec_embeding_dict.pickle 0
+../Data/drug_word2vec_ddi_dict.pickle 0
 -----------------
 character: action
 old vector size: 626
-delete vectors: 438
-new vector size: 188
+delete vectors: 405
+new vector size: 221
 -----------------
 character: physiologicalCode
 old vector size: 1866
-delete vectors: 1546
-new vector size: 320
+delete vectors: 1540
+new vector size: 326
 -----------------
 character: side effect
-old vector size: 4492
-delete vectors: 1188
-new vector size: 3304
------------------
-character: enzyme
-old vector size: 174
-delete vectors: 33
-new vector size: 141
+old vector size: 4876
+delete vectors: 409
+new vector size: 4467
 -----------------
 character: target
-old vector size: 1220
-delete vectors: 447
-new vector size: 773
+old vector size: 3880
+delete vectors: 3199
+new vector size: 681
 -----------------
 character: atc
-old vector size: 738
-delete vectors: 119
-new vector size: 619
+old vector size: 867
+delete vectors: 305
+new vector size: 562
 -----------------
 character: MACCS
 old vector size: 166
-delete vectors: 8
-new vector size: 158
+delete vectors: 9
+new vector size: 157
 -----------------
-character: MeSH
+character: deepwalk
+old vector size: 127
+delete vectors: 0
+new vector size: 127
+-----------------
+character: LINE
+old vector size: 127
+delete vectors: 0
+new vector size: 127
+-----------------
+character: node2vec
 old vector size: 127
 delete vectors: 0
 new vector size: 127
@@ -235,4 +256,14 @@ character: Word2Vec
 old vector size: 100
 delete vectors: 0
 new vector size: 100
+drug_actionCode_matrix_dict 584 221
+drug_phyCode_matrix_dict 584 326
+drug_SIDER_matrix_dict 584 4467
+drug_target_matrix_dict 584 681
+drug_atc_matrix_dict 584 562
+drug_MACCS_matrix_dict 584 157
+drug_MeSH_matrix_dict 584 127
+drug_MeSH_matrix_dict 584 127
+drug_MeSH_matrix_dict 584 127
+drug_word2vec_matrix_dict 584 100
 """
