@@ -10,7 +10,7 @@ __description__== 抽取药物MACCS key:
                   从.sdf文件(all structure from drugbank)中抽取出药物名称(generic Name, 全部小写)
                   ==> 经过MAyaChemTools处理得到MACCS key与药物名称对应起来.
                   ==> 序列化
-                  ""Data/drug_MACCS166.pickle": 长度为8176的dict结构, key为药名, value为MACCS key vector
+                  ""Data/drug_MACCS166_dict.pickle": 长度为8176的dict结构, key为药名, value为MACCS key vector
 
 
 """
@@ -64,5 +64,5 @@ def build_MACCS_ddi_matrix():
 if __name__ == '__main__':
     drugs_list, item = extract_from_sdf()
     drugs2MACCS_dict = extract_MACCSkey(drugs_list)
-    with open("/home/yuan/Code/PycharmProjects/DrugBest/Data/drug_MACCS166.pickle", "wb") as wf:
+    with open("/home/yuan/Code/PycharmProjects/DrugBest/Data/drug_MACCS166_dict.pickle", "wb") as wf:
         pickle.dump(drugs2MACCS_dict, wf)
