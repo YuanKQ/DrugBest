@@ -17,7 +17,7 @@ drugbank所有药物相应的特征矩阵，可以直接提取不同年份的药
 
 **特征向量可以为0**
 - ndfrt/drug_actionCode_matrix_dict.pickle: dict, 1388*626, idf
-- ndfrt/drug_physiologicalCode_matrix_dict.pickle: dict, 1321*1866, idf
+- ndfrt/drug_physiologicalCode_matrix_dict.pickle: dict, 1388*1866, idf
 - SIDER/drug_SIDER.pickle: dict, 892*4876, idf
 - Target_DDI-v4/drug_target.pickle: dict, 6837*3880, idf
 
