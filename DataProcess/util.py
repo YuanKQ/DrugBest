@@ -57,6 +57,82 @@ def get_drugbankId_drugname():
         drugbankId_drugName_dict = pickle.load(rf)
     return drugbankId_drugName_dict
 
+
+def get_ddi_drugs():
+    drugs_ddi = set()
+    with open("/home/yuan/Code/PycharmProjects/DrugBest/Data/draft/relation.txt", 'r') as rf:
+        lines = rf.readlines()
+    for line in lines:
+        items = line.split("$")
+        # print(line)
+        if len(items) > 0:
+            drugs_ddi.add(items[0])
+            drugs_ddi.add(items[1])
+    return drugs_ddi
+
+
+def process_relations(drug_file="/home/yuan/Code/PycharmProjects/DrugBest/Data/after/drugs_ddi.pickle",
+                      rel_file="/home/yuan/Code/PycharmProjects/DrugBest/Data/draft/relation.txt",
+                      target_file="/home/yuan/Code/PycharmProjects/DrugBest/Data/after/ddi_pairs_v5.txt"):
+    """
+    去掉重复的ddi，去掉某一维特征向量为0的药物的ddi
+    :return:
+    """
+    with open(drug_file, 'rb') as rf:
+        drugs = pickle.load(rf)
+    with open(rel_file, 'r') as rf:
+        lines = rf.readlines()
+    print("all ddi pairs: ", len(lines))
+    line_set = set()
+    positive_count = 0
+    negetive_count = 0
+    with open(target_file, "w") as wf:
+        for line in lines:
+            items = line.split("$")
+            if len(items) >= 3:
+                head = items[0]
+                tail = items[1]
+                rel = items[2].split()[0]
+                if head in drugs and tail in drugs:
+                    if line not in line_set:
+                        line_set.add(line)
+                        wf.write(line)
+                        if "increase" in rel:
+                            positive_count += 1
+                        if "decrease" in rel:
+                            negetive_count += 1
+    print("filtered: ", len(line_set))
+    print("increase: ", positive_count)
+    print("decrease: ", negetive_count)
+
+
+def get_relations(file="/home/yuan/Code/PycharmProjects/DrugBest/Data/after/ddi_pairs_v5.txt",
+                  target_file="/home/yuan/Code/PycharmProjects/DrugBest/Data/after/ddi_rel_v5.pickle"):
+    with open(file, 'r') as rf:
+        lines = rf.readlines()
+    ddi_increase = list()
+    ddi_decrease = list()
+    for line in lines:
+        items = line.split("$")
+        if len(items) > 3:
+            head = items[0]
+            tail = items[1]
+            rel = items[2].split()[0]
+            tmp = []
+            tmp.append(head)
+            tmp.append(tail)
+            tmp.append(rel)
+            if "increase" in rel:
+                ddi_increase.append(tmp)
+            if "decrease" in rel:
+                ddi_decrease.append(tmp)
+    with open(target_file, "wb") as wf:
+        pickle.dump(ddi_increase, wf)
+        pickle.dump(ddi_decrease, wf)
+
 if __name__ == '__main__':
-    # extract_drugbank_id_drugname()
+    # drugs_ddi = get_ddi_drugs()
+    # print("all drugs of ddi: ", len(drugs_ddi))
+    # process_relations()
+    get_relations()
     print("end")

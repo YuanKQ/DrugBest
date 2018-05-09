@@ -129,6 +129,10 @@ if __name__ == '__main__':
     print("total_drug_node2vec:", len(total_drug_node2vec_set))  # 557
     print("total_drug_LINE:", len(total_drug_LINE_set))  # 557
 
+    total_drug_list = list(total_drug_set)
+    with open("/home/yuan/Code/PycharmProjects/DrugBest/Data/after/drugs_ddi.pickle", "wb") as wf:
+        pickle.dump(total_drug_list, wf)
+
     # 过滤掉不在数据集total_drug_set中的药物
     drug_actionCode_matrix_dict, action_set = complete_zeros_vector("../Data/drug_actionCode_matrix_dict.pickle")
     drug_phyCode_matrix_dict, phy_set = complete_zeros_vector("../Data/drug_physiologicalCode_matrix_dict.pickle")
